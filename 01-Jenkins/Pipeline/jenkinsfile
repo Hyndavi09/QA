@@ -1,5 +1,8 @@
-node {
-     
+def Pipeline_Message
+pipeline
+{
+agent any
+stages {
   stage('Git-Checkout') {
    git 'https://github.com/Hyndavi09/DevOpsPetclinic.git'
   }
@@ -52,12 +55,9 @@ dir(project_terra) {
 }
 
 }
+}
 post 
     {  
-        always 
-        {  
-            echo 'This will always run'  
-        }
         success {
             mail bcc: '', body: 'project is successfully builded', from: '', replyTo: '', subject: 'project successfully finished.', to: 'hyndavi.ommu@mindtree.com'
         }
