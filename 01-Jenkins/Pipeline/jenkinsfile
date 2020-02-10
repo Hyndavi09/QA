@@ -35,7 +35,7 @@ node
   
   stage('Jfrog Artifacory Upload') {
 
-	def server= Artifactory.server 'Artifactory'
+	def server= Artifactory.server 'artifact'
 	def uploadSpec= """{
 	"files": [{
 	"pattern": "/root/.jenkins/workspace/MyAnsible1/01-Jenkins/Code/petclinic/target/*.war",
