@@ -46,6 +46,9 @@ server.upload(uploadSpec)
    stage('Docker-Stage-Deployment') {
    sh label: '', script: 'docker-compose up -d --build'
   }
+  stage('Input') {
+                input('Do you want to proceed?')           
+        }
  
   stage('Geting Ready For Ansible') {
   sh label: 'Docker', script: 'cp -rf target/*.war ../../../04-Terraform/03-Ansible-Deploy/ansible/04-Tomcat/templates/'
