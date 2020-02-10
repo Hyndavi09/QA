@@ -61,16 +61,4 @@ dir(project_terra) {
    sh label: 'terraform', script: '/bin/terraform  apply -input=false -auto-approve'
    }
 }
-
-
-post 
-    {  
-        success {
-            mail bcc: '', body: 'project is successfully builded', from: '', replyTo: '', subject: 'project successfully finished.', to: 'hyndavi.ommu@mindtree.com'
-        }
-        failure {
-            mail bcc: '', body: 'project is unsuccessfully builded', from: '', replyTo: '', subject: 'project unsuccessfully finished.', to: 'hyndavi.ommu@mindtree.com'
-        
-        }
-}
 }
