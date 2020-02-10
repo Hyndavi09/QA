@@ -1,8 +1,5 @@
-def Pipeline_Message
-pipeline
+node
 {
-agent any
-stages {
   stage('Git-Checkout') {
    git 'https://github.com/Hyndavi09/DevOpsPetclinic.git'
   }
@@ -54,8 +51,7 @@ dir(project_terra) {
    }
 }
 
-}
-}
+
 post 
     {  
         success {
@@ -66,4 +62,4 @@ post
         
         }
 }
-
+}
