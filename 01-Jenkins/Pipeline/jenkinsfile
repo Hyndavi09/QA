@@ -33,20 +33,8 @@ node
         }
         }
   
-  stage('Jfrog Artifacory Upload') {
-
-	def server= Artifactory.server 'artifact'
-	def uploadSpec= """{
-	"files": [{
-	"pattern": "/root/.jenkins/workspace/MyAnsible1/01-Jenkins/Code/petclinic/target/*.war",
-		"target": "petclinic"}]
-	}"""
-server.upload(uploadSpec)
-}
-   stage('Docker-Stage-Deployment') {
-   sh label: '', script: 'docker-compose up -d --build'
-  }
-  stage('Input') {
+  
+  stage('Deploy Approval') {
                 input('Do you want to proceed?')           
         }
  
