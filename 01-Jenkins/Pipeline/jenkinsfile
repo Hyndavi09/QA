@@ -1,7 +1,7 @@
 node
 {
   stage('Git-Checkout') {
-   git 'https://github.com/Hyndavi09/DevOpsPetclinic.git'
+   git 'https://github.com/Hyndavi09/QA.git'
   }
     
  def project_path="01-Jenkins/Code/petclinic"
