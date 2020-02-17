@@ -5,9 +5,7 @@ node
   }
     
  def project_path="01-Jenkins/Code/petclinic"
- stage('Input for deploy in test server') {  
-   input('Do you want to deploy in test server proceed?')      
-        }
+ 
  dir(project_path) {
    stage('Maven-Package') {
    sh label: '', script: 'mvn package'
