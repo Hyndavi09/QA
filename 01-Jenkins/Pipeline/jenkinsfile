@@ -17,7 +17,7 @@ node
     server.download(downloadSpec)
    
 }
-def project_path="petclinicwarfile"
+def project_path="02-Docker"
 dir(project_path) {	
     stage('Docker-Stage-Deployment') {
    sh label: 'DOCKER DEPLOYMENT', script: 'docker-compose up -d --build'
