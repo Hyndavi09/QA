@@ -1,15 +1,29 @@
 node
 {
   stage('Git-Checkout') {
-   git 'https://github.com/Hyndavi09/QA.git'
+   git 'https://github.com/Hyndavi09/TestServer.git'
   }
-    
- def project_path="01-Jenkins/Code/petclinic"
+ def project_path="01-Jenkins/Pipeline"
  
  dir(project_path) {
-   stage('Maven-Package') {
-   sh label: '', script: 'mvn package'
-  }
+  stage('create artifact folder to store artifact'){
+    sh label: '',script: "rm -rf petclinicwarfile"
+    sh label: '', script: "mkdir petclinicwarfile"
+    }
+	 
+    stage('Jfrog Artifactory download'){
+    def server= Artifactory.server 'artifact'
+    def downloadSpec = """{
+    "files": [
+    {
+      "pattern": "petclinic/*.war",
+      "target": "/root/.jenkins/workspace/Production/01-Jenkins/Pipeline/petclinicwarfile/"  
+    }
+    ]
+    }"""
+    server.download(downloadSpec)
+   
+}
     stage('Docker-Stage-Deployment') {
    sh label: 'DOCKER DEPLOYMENT', script: 'docker-compose up -d --build'
   }
