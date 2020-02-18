@@ -5,12 +5,7 @@ node
   }
  def project_path="01-Jenkins/Pipeline"
  
- dir(project_path) {
-  stage('create artifact folder to store artifact'){
-    sh label: '',script: "rm -rf petclinicwarfile"
-    sh label: '', script: "mkdir petclinicwarfile"
-    }
-	 
+ dir(project_path) {	 
     stage('Jfrog Artifactory download'){
     def server= Artifactory.server 'artifact'
     def downloadSpec = """{
