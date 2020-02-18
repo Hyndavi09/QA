@@ -3,7 +3,13 @@ node
   stage('Git-Checkout') {
    git 'https://github.com/Hyndavi09/TestServer.git'
   }
-  
+  def project_path="01-Jenkins/Pipeline"
+ 
+ dir(project_path) {
+  stage('create artifact folder to store artifact'){
+    sh label: '',script: "rm -rf petclinicwarfile"
+    sh label: '', script: "mkdir petclinicwarfile"
+    }
     stage('Jfrog Artifactory download'){
     def server= Artifactory.server 'artifact'
     def downloadSpec = """{
