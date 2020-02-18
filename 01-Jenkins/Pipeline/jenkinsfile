@@ -17,7 +17,7 @@ node
     "files": [
     {
       "pattern": "petclinic/*.war",
-      "target": "/root/.jenkins/workspace/Production/01-Jenkins/Pipeline/petclinicwarfile/"  
+      "target": "/root/.jenkins/workspace/TestServer/01-Jenkins/Pipeline/petclinicwarfile/"  
     }
     ]
     }"""
