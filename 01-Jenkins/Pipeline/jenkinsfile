@@ -17,7 +17,6 @@ node
     ]
     }"""
     server.download(downloadSpec)
-   }
 }
 def project_path2="02-Docker"
 dir(project_path2) {	
